@@ -1,0 +1,15 @@
+<h1>Listing articles</h1>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>State</th>
+	</tr>
+
+	<% @chapters.each do |chapter| %>
+		<tr>
+			<td><%= chapter.name %></td>
+			<td><%= chapter.state %></td>
+		</tr>
+	<% end %>
+</table>
