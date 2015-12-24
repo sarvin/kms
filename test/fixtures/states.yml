@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  abbreviated_name: MyString
+  census_division_name: MyString
+
+two:
+  name: MyString
+  abbreviated_name: MyString
+  census_division_name: MyString
