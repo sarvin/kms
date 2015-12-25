@@ -11,14 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151224233916) do
+ActiveRecord::Schema.define(version: 20151225021640) do
 
   create_table "chapters", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.text     "state",      limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "state_id",   limit: 4
   end
+
+  add_index "chapters", ["state_id"], name: "index_chapters_on_state_id", using: :btree
 
   create_table "states", force: :cascade do |t|
     t.string   "name",                 limit: 255
@@ -30,4 +33,5 @@ ActiveRecord::Schema.define(version: 20151224233916) do
 
   add_index "states", ["name"], name: "index_states_on_name", unique: true, using: :btree
 
+  add_foreign_key "chapters", "states"
 end
