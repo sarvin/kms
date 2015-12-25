@@ -5,3 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'csv'
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'us_state_table.csv'))
+csv = CSV.parse(csv_text, :headers => true)
+csv.each do |row|
+	#puts row.to_hash
+
+	state = State.new
+	state.name = row['name']
+	state.abbreviated_name = row['abbreviation']
+	state.census_division_name = row['census_division_name']
+	state.save
+
+	puts "#{state.name}, #{state.abbreviated_name} saved"
+end

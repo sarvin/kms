@@ -7,5 +7,7 @@ class CreateStates < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+	add_index :states, :name, :unique => true
   end
 end
