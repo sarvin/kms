@@ -20,7 +20,7 @@
 
 	<p>
 		<%= f.label :state %><br>
-		<%= f.text_field :state %>
+		<%= f.collection_select :state_id, State.order(:name),:id,:name, prompt: true %>
 	</p>
 
 	<p>
