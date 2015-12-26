@@ -7,9 +7,7 @@ Ruby on Rails app for creating a website for Motorcycle Clubs. Right now this is
 * Setup
 
   1. rake db:create
- 
   2. rake db:migrate
-
   3. rake db:seed
 
 * this is a list with three paragraphs in
