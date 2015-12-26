@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :chapters
 
+	get 'home/:state_name', to: 'home#index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
