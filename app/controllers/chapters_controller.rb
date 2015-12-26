@@ -47,6 +47,6 @@ end
 
 	private
 		def chapter_params
-			params.require(:chapter).permit(:name, :state)
+			params.require(:chapter).permit(:name, :state_id)
 		end
 end
