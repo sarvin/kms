@@ -5,6 +5,7 @@ Ruby on Rails app for creating a website for Motorcycle Clubs. Right now this is
 * Written with ruby 2.2.3p173
 
 * Setup
+  rake db:create
 	rake db:migrate
 	rake db:seed
 
@@ -12,7 +13,6 @@ Ruby on Rails app for creating a website for Motorcycle Clubs. Right now this is
   the first item.  This is the first paragraph.
 
   And this is the second paragraph.
-  rake db:create
 
   1. This is an indented, numbered list.
   2. This is the second item in that list
