@@ -9,15 +9,3 @@ Ruby on Rails app for creating a website for Motorcycle Clubs. Right now this is
   1. rake db:create
   2. rake db:migrate
   3. rake db:seed
-
-* this is a list with three paragraphs in
-  the first item.  This is the first paragraph.
-
-  And this is the second paragraph.
-
-  1. This is an indented, numbered list.
-  2. This is the second item in that list
-
-  This is the third conventional paragraph in the
-  first list item.
-
