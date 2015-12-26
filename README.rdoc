@@ -3,26 +3,14 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
+Ruby on Rails app for creating a website for Motorcycle Clubs
+
 Things you may want to cover:
 
-* Ruby version
+* Written with ruby 2.2.3p173
 
-* System dependencies
+* Setup
+	rake db:migrate
+	rake db:seed
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Right now this is a generic ruby on rails app. This is being created as a personal project with learning RoR in mind.
