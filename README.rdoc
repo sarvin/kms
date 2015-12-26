@@ -1,14 +1,10 @@
 == README
 
-Ruby on Rails app for creating a website for Motorcycle Clubs
-
-Things you may want to cover:
+Ruby on Rails app for creating a website for Motorcycle Clubs. Right now this is a generic ruby on rails app. This is being created as a personal project with learning RoR in mind.
 
 * Written with ruby 2.2.3p173
 
 * Setup
-  rake db:create
-  rake db:migrate
-  rake db:seed
-
-* Right now this is a generic ruby on rails app. This is being created as a personal project with learning RoR in mind.
+	rake db:create
+	rake db:migrate
+	rake db:seed
