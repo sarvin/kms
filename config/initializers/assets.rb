@@ -11,7 +11,11 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 # Compile CSS for home controller
-# Rails.application.config.assets.precompile += ["#{home}.css"]
 %w( home ).each do |controller|
 	Rails.application.config.assets.precompile += ["#{controller}.js.coffee", "#{controller}.css"]
+end
+
+Rails.application.configure do
+	### Newline like below for each asset we need added
+	config.assets.precompile += %w( foundation.min.js )
 end
