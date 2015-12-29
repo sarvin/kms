@@ -1,4 +1,4 @@
-<h1>Editing Page</h1>
+<h1>Edit <%= @pageable.name %> <%= @page.pageable_type %> Page</h1>
 <%= form_for([@pageable, @page]) do |f| %>
 	<% if @page.errors.any? %>
 		<div id="error_explanation">
@@ -29,3 +29,4 @@
 		<%= f.submit %>
 	</p>
 <% end %>
+<%= link_to 'Back', polymorphic_path(@pageable) %>
