@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151225201205) do
+ActiveRecord::Schema.define(version: 20151228000955) do
 
   create_table "chapters", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -21,6 +21,18 @@ ActiveRecord::Schema.define(version: 20151225201205) do
   end
 
   add_index "chapters", ["state_id"], name: "index_chapters_on_state_id", using: :btree
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "title",         limit: 255
+    t.string   "sub_title",     limit: 255
+    t.text     "body",          limit: 65535
+    t.integer  "pageable_id",   limit: 4
+    t.string   "pageable_type", limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "pages", ["pageable_type", "pageable_id"], name: "index_pages_on_pageable_type_and_pageable_id", using: :btree
 
   create_table "states", force: :cascade do |t|
     t.string   "name",                 limit: 255

@@ -27,21 +27,34 @@
 <% else %>
 	<h2>Add a Page:</h2>
 	<%= form_for([@chapter, @chapter.build_page]) do |f| %>
-	<p>
-		<%= f.label :title %><br>
-		<%= f.text_field :title %>
-	</p>
-	<p>
-		<%= f.label :sub_title %><br>
-		<%= f.text_field :sub_title %>
-	</p>
-	<p>
-		<%= f.label :body %><br>
-		<%= f.text_area :body %>
-	</p>
-	<p>
-		<%= f.submit %>
-	</p>
+		<% if @page && @page.errors.any? %>
+			<div id="error_explanation">
+				<h2>
+					<%= pluralize(@page.errors.count, "error") %> prohibited
+					this page from being saved:
+				</h2>
+				<ul>
+					<% @page.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+		<p>
+			<%= f.label :title %><br>
+			<%= f.text_field :title %>
+		</p>
+		<p>
+			<%= f.label :sub_title %><br>
+			<%= f.text_field :sub_title %>
+		</p>
+		<p>
+			<%= f.label :body %><br>
+			<%= f.text_area :body %>
+		</p>
+		<p>
+			<%= f.submit %>
+		</p>
 	<% end %>
 <% end %>
 
