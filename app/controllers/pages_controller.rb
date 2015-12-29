@@ -7,6 +7,31 @@ class PagesController < ApplicationController
 		redirect_to polymorphic_path(@pageable)
 	end
 
+	def edit
+		@page = Page.find(params[:id])
+		@pageable = @page.pageable
+	end
+
+	def update
+		@page = Page.find(params[:id])
+		@pageable = @page.pageable
+
+		if @page.update(page_params)
+			redirect_to polymorphic_path(@pageable)
+		else
+			render 'edit'
+		end
+	end
+
+	def destroy
+		@page = Page.find(params[:id])
+		@pageable = @page.pageable
+		@page.destroy
+
+		#redirect_to polymorphic_path(@pageable)
+		redirect_to chapters_path
+	end
+
 	private
     def page_params
       params.require(:page).permit(:title, :sub_title, :body)

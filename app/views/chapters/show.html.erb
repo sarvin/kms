@@ -8,6 +8,9 @@
 	<%= @chapter.state.name %>
 </p>
 
+<%= link_to 'Edit', edit_chapter_path(@chapter) %> |
+<%= link_to 'Back', chapters_path %>
+
 <% if @chapter.page %>
 	<h2>Page</h2>
 	<p>
@@ -24,6 +27,12 @@
 		<strong>Body:</strong>
 		<%= @chapter.page.body %>
 	</p>
+
+	<%= link_to 'Edit Page', edit_chapter_page_path(@chapter, @chapter.page) %>
+	<%= link_to 'Delete Page', [@chapter, @chapter.page],
+		method: :delete,
+		data: { confirm: 'Are you sure?' }
+	%>
 <% else %>
 	<h2>Add a Page:</h2>
 	<%= form_for([@chapter, @chapter.build_page]) do |f| %>
@@ -58,6 +67,3 @@
 	<% end %>
 <% end %>
 
-
-<%= link_to 'Edit', edit_chapter_path(@chapter) %> |
-<%= link_to 'Back', chapters_path %>
