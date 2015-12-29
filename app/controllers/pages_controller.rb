@@ -28,8 +28,7 @@ class PagesController < ApplicationController
 		@pageable = @page.pageable
 		@page.destroy
 
-		#redirect_to polymorphic_path(@pageable)
-		redirect_to chapters_path
+		redirect_to polymorphic_path(@pageable)
 	end
 
 	private
