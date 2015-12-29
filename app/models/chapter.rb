@@ -1,6 +1,8 @@
 class Chapter < ActiveRecord::Base
-	belongs_to :state
 	validates :name, presence: true,
 		uniqueness: true
 	validates :state_id, presence: true
+	belongs_to :state
+	has_one :page, :as => :pageable, dependent: :destroy
+	#accepts_nested_attributes_for :page
 end
