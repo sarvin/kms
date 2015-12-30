@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 		resources :pages
 	end
 
-	get 'home/:state_name', to: 'home#index'
+	#get 'home/:state_name', to: 'home#index'
+	#get 'home/:state_name' => 'home#view'
+	get 'state/:state_name' => 'states#view'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
