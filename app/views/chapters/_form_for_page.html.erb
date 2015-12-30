@@ -1,0 +1,55 @@
+<% if @chapter.page %>
+	<h2>Page</h2>
+	<p>
+		<strong>Title:</strong>
+		<%= @chapter.page.title %>
+	</p>
+	
+	<p>
+		<strong>Sub-Title:</strong>
+		<%= @chapter.page.sub_title %>
+	</p>
+
+	<p>
+		<strong>Body:</strong>
+		<%= @chapter.page.body %>
+	</p>
+
+	<%= link_to 'Edit Page', edit_chapter_page_path(@chapter, @chapter.page) %>
+	<%= link_to 'Delete Page', [@chapter, @chapter.page],
+		method: :delete,
+		data: { confirm: 'Are you sure?' }
+	%>
+<% else %>
+	<h2>Add a Page:</h2>
+	<%= form_for([@chapter, @chapter.build_page]) do |f| %>
+		<% if @page && @page.errors.any? %>
+			<div id="error_explanation">
+				<h2>
+					<%= pluralize(@page.errors.count, "error") %> prohibited
+					this page from being saved:
+				</h2>
+				<ul>
+					<% @page.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+		<p>
+			<%= f.label :title %><br>
+			<%= f.text_field :title %>
+		</p>
+		<p>
+			<%= f.label :sub_title %><br>
+			<%= f.text_field :sub_title %>
+		</p>
+		<p>
+			<%= f.label :body %><br>
+			<%= f.text_area :body, :cols => 80, :rows => 20 %>
+		</p>
+		<p>
+			<%= f.submit %>
+		</p>
+	<% end %>
+<% end %>
