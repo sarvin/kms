@@ -13,12 +13,13 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'us_state_table.csv'))
 csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|
 	#puts row.to_hash
-	state = State.find_by name: row['name']
+	# FYI: We're not doing case sensitive searching
+	state = State.find_by name: row['name'].downcase
 
 	unless state
 		puts "State not found in database. Creating new state with name #{row['name']}"
 		state = State.new
-		state.name = row['name']
+		state.name = row['name'].downcase
 	end
 
 	state.abbreviated_name = row['abbreviation']
