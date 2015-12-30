@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  #get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -11,8 +11,7 @@ Rails.application.routes.draw do
 		resources :pages
 	end
 
-	#get 'home/:state_name', to: 'home#index'
-	#get 'home/:state_name' => 'home#view'
+	get 'home/:page_name' => 'home#index'
 	get 'state/:state_name' => 'states#view'
 
   # Example of regular route:

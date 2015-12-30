@@ -4,7 +4,7 @@
 		<% State.joins(:chapters).each do |state| %>
 			<a href="/state/<%= state.name %>" class="small radius button"><%= state.name.upcase %></a><br/>
 		<% end %>
-		<a href="history.html" class="small radius button">HISTORY</a><br/>
+		<a href="/home/history" class="small radius button">HISTORY</a><br/>
 		<br/>
 			<!-- <a href="#" class="medium secondary button">WEB-LINKS</a> -->
 	</p>
