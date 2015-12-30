@@ -16,6 +16,7 @@ class PagesController < ApplicationController
 		@page = Page.find(params[:id])
 		@pageable = @page.pageable
 
+		#logger.debug "page params body is: #{params[:page][:body]}"
 		if @page.update(page_params)
 			redirect_to polymorphic_path(@pageable)
 		else
