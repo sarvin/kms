@@ -1,10 +1,27 @@
 class PagesController < ApplicationController
+	def new
+		@page = Page.new
+	end
+
+	def index
+		@pages = Page.all
+	end
+
 	def create
 		@pageable = find_pageable
-		@page = @pageable.build_page(page_params)
+		if @pageable
+			@page = @pageable.build_page(page_params)
+		else
+			@page = Page.new(page_params)
+		end
 
 		@page.save
-		redirect_to polymorphic_path(@pageable)
+
+		if @pageable
+			redirect_to polymorphic_path(@pageable)
+		end
+
+		redirect_to action: "index"
 	end
 
 	def edit
@@ -29,7 +46,11 @@ class PagesController < ApplicationController
 		@pageable = @page.pageable
 		@page.destroy
 
-		redirect_to polymorphic_path(@pageable)
+		if @pageable
+			redirect_to polymorphic_path(@pageable)
+		end
+
+		redirect_to action: "index"
 	end
 
 	private

@@ -7,11 +7,13 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
+	resources :pages
+
 	resources :chapters do
 		resources :pages
 	end
 
-	get 'home/:page_name' => 'home#index'
+	get 'home/:title' => 'home#index'
 	get 'state/:state_name' => 'states#view'
 
   # Example of regular route:
