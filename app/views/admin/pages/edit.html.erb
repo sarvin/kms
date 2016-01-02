@@ -1,0 +1,6 @@
+<% if @pageable %>
+	<h1>Edit <%= @pageable.name %> <%= @page.pageable_type %> Page</h1>
+	<%= render 'form_polymorphic', :pageable => @pageable %>
+<% else %>
+	<%= render 'form' %>
+<% end %>
