@@ -10,10 +10,10 @@
 				<div class="large-9 medium-9 columns">
 
 					<hr class="top-hr" />
-						<h3><%= @page.sub_title %></h3>
+						<h3><% if @page %><%= @page.sub_title %><% end %></h3>
 					<hr />
 
-					<p><%= @page.body.html_safe %></a>
+					<p><% if @page %><%= @page.body.html_safe %><% end %></a>
 
 					<hr />
 
