@@ -1,3 +1,6 @@
+<% unless @page %>
+	<% @page = pageable.build_page %>
+<% end %>
 <%= form_for([pageable, @page]) do |f| %>
 	<% if @page.errors.any? %>
 		<div id="error_explanation">

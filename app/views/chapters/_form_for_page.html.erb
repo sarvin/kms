@@ -22,5 +22,5 @@
 	%>
 <% else %>
 	<h2>Add a Page:</h2>
-	<%= render 'page/form_polymorphic', :pageable => @chapter %>
+	<%= render :partial => 'pages/form_polymorphic', :locals => {:pageable => @chapter} %>
 <% end %>
