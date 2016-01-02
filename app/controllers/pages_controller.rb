@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 	def new
 		@page = Page.new
+		#render plain: params.inspect
 	end
 
 	def index
@@ -19,9 +20,9 @@ class PagesController < ApplicationController
 
 		if @pageable
 			redirect_to polymorphic_path(@pageable)
+		else
+			redirect_to action: "index"
 		end
-
-		redirect_to action: "index"
 	end
 
 	def edit
@@ -48,9 +49,9 @@ class PagesController < ApplicationController
 
 		if @pageable
 			redirect_to polymorphic_path(@pageable)
+		else
+			redirect_to action: "index"
 		end
-
-		redirect_to action: "index"
 	end
 
 	private
