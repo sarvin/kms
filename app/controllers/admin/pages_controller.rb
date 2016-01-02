@@ -19,7 +19,7 @@ class Admin::PagesController < ApplicationController
 		@page.save
 
 		if @pageable
-			redirect_to polymorphic_path(@pageable)
+			redirect_to polymorphic_path([:admin, @pageable])
 		else
 			redirect_to action: "index"
 		end
@@ -35,7 +35,7 @@ class Admin::PagesController < ApplicationController
 		@pageable = @page.pageable
 
 		if @page.update(page_params) && @pageable
-			redirect_to polymorphic_path(@pageable)
+			redirect_to polymorphic_path([:admin, @pageable])
 		else
 			render 'edit'
 		end
@@ -47,7 +47,7 @@ class Admin::PagesController < ApplicationController
 		@page.destroy
 
 		if @pageable
-			redirect_to polymorphic_path(@pageable)
+			redirect_to polymorphic_path([:admin, @pageable])
 		else
 			redirect_to action: "index"
 		end

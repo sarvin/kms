@@ -15,12 +15,12 @@
 		<%= @chapter.page.body %>
 	</p>
 
-	<%= link_to 'Edit Page', edit_chapter_page_path(@chapter, @chapter.page) %>
-	<%= link_to 'Delete Page', [@chapter, @chapter.page],
+	<%= link_to 'Edit Page', edit_admin_chapter_page_path(@chapter, @chapter.page) %>
+	<%= link_to 'Delete Page', [:admin, @chapter, @chapter.page],
 		method: :delete,
 		data: { confirm: 'Are you sure?' }
 	%>
 <% else %>
 	<h2>Add a Page:</h2>
-	<%= render :partial => 'pages/form_polymorphic', :locals => {:pageable => @chapter} %>
+	<%= render :partial => 'admin/pages/form_polymorphic', :locals => {:pageable => @chapter} %>
 <% end %>
