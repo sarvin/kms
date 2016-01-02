@@ -8,7 +8,7 @@
 		<th colspan="3"></th>
 	</tr>
 
-	<% @pages.sort_by{|page| page.title}.each do |page| %>
+	<% @pages.each do |page| %>
 		<tr>
 			<td><%= page.title %></td>
 			<td><%= page.sub_title %></td>
