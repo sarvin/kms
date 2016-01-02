@@ -5,7 +5,11 @@
  
 <p>
 	<strong>State:</strong>
-	<%= @chapter.state.titleize_name %>
+	<%- if @chapter.state %>
+		<%= @chapter.state.titleize_name %>
+	<%- else %>
+		Chapter not associated with a State
+	<%- end %>
 </p>
 
 <%= link_to 'Edit', edit_chapter_path(@chapter) %> |
@@ -13,4 +17,3 @@
 
 
 <%= render 'form_for_page' %>
-
