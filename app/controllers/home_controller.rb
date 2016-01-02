@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
   def index
-		@page = Page.find_by(title: params[:title])
-
-		unless @page
+		if params[:title]
+			@page = Page.find_by(title: params[:title])
+		else
 			@page = Page.find_by(title: 'home')
 		end
   end
