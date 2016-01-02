@@ -11,9 +11,6 @@ class ChaptersController < ApplicationController
 		else
 			render 'new'
 		end
-
-		#render plain: params[:chapter].inspect
-		#@chapter = Chapter.new(params.require(:chapter).permit(:name, :state))
 	end
 
 	def index
