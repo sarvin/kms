@@ -39,7 +39,7 @@ class Admin::ChaptersController < ApplicationController
 		@chapter = Chapter.find(params[:id])
 		@chapter.destroy
 
-		redirect_to chapters_path
+		redirect_to admin_chapters_path
 	end
 
 	private
