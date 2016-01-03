@@ -17,5 +17,6 @@ end
 
 Rails.application.configure do
 	### Newline like below for each asset we need added
-	config.assets.precompile += %w( foundation.min.js )
+	config.assets.precompile += %w( foundation.js )
+	config.assets.precompile += %w( foundation.css )
 end
