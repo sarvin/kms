@@ -7,18 +7,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-	resources :pages
-
 	namespace :admin do
 		resources :pages
 
 		resources :chapters do
 			resources :pages
 		end
-	end
-
-	resources :chapters do
-		resources :pages
 	end
 
 	get 'home/:title' => 'home#index'
