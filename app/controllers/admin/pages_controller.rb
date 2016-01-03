@@ -1,4 +1,4 @@
-class Admin::PagesController < ApplicationController
+class Admin::PagesController < Admin::BaseController
 	def new
 		@page = Page.new
 		#render plain: params.inspect

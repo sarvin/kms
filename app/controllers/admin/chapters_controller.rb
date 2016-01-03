@@ -1,6 +1,4 @@
-class Admin::ChaptersController < ApplicationController
-	before_action :authenticate_user!
-
+class Admin::ChaptersController < Admin::BaseController
 	def new
 		@chapter = Chapter.new
 	end
