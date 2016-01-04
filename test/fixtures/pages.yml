@@ -1,11 +1,29 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  title: MyString
-  sub_title: MyString
-  body: MyText
-
+  title: ''
+  sub_title: ''
+  body: SAMTAZ is the best
+  pageable: SAMTAZ (Chapter)
 two:
-  title: MyString
-  sub_title: MyString
-  body: MyText
+  body: SAMCRO is the best
+  pageable: SAMCRO (Chapter)
+three:
+  body: SAMDINO is the best
+  pageable: SAMDINO (Chapter)
+four:
+  body: Devil's Tribe is the best
+  pageable: Devil's Tribe (Chapter)
+five:
+  body: RAHWAY is the best
+  pageable: RAHWAY (Chapter)
+six:
+  body: SAMBEL is the best
+  pageable: SAMBEL (Chapter)
+seven:
+  title: home
+  sub_title: home page sub title
+  body: "lots of text in body"
+eight:
+  title: history
+  sub_title: History of the SoA
+  body: Television show that origionally aired on fox
