@@ -1,9 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  state: MyText
-
-two:
-  name: MyString
-  state: MyText
+SAMTAZ:
+  name: SAMTAZ
+  state: arizona
+SAMCRO:
+  name: SAMCRO
+  state: california
+SAMDINO:
+  name: SAMDINO
+  state: california
+"Devil's Tribe":
+  name: "Devil's Tribe"
+  state: nevada
+RAHWAY:
+  name: RAHWAY
+  state: new jersey
+SAMBEL:
+  name: SAMBEL
