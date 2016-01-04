@@ -1,11 +1,201 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: MyString
-  abbreviated_name: MyString
-  census_division_name: MyString
-
-two:
-  name: MyString
-  abbreviated_name: MyString
-  census_division_name: MyString
+alabama:
+  name: alabama
+  abbreviated_name: AL
+  census_division_name: East South Central
+alaska:
+  name: alaska
+  abbreviated_name: AK
+  census_division_name: Pacific
+arizona:
+  name: arizona
+  abbreviated_name: AZ
+  census_division_name: Mountain
+arkansas:
+  name: arkansas
+  abbreviated_name: AR
+  census_division_name: West South Central
+california:
+  name: california
+  abbreviated_name: CA
+  census_division_name: Pacific
+colorado:
+  name: colorado
+  abbreviated_name: CO
+  census_division_name: Mountain
+connecticut:
+  name: connecticut
+  abbreviated_name: CT
+  census_division_name: New England
+delaware:
+  name: delaware
+  abbreviated_name: DE
+  census_division_name: South Atlantic
+florida:
+  name: florida
+  abbreviated_name: FL
+  census_division_name: South Atlantic
+georgia:
+  name: georgia
+  abbreviated_name: GA
+  census_division_name: South Atlantic
+hawaii:
+  name: hawaii
+  abbreviated_name: HI
+  census_division_name: Pacific
+idaho:
+  name: idaho
+  abbreviated_name: ID
+  census_division_name: Mountain
+illinois:
+  name: illinois
+  abbreviated_name: IL
+  census_division_name: East North Central
+indiana:
+  name: indiana
+  abbreviated_name: IN
+  census_division_name: East North Central
+iowa:
+  name: iowa
+  abbreviated_name: IA
+  census_division_name: West North Central
+kansas:
+  name: kansas
+  abbreviated_name: KS
+  census_division_name: West North Central
+kentucky:
+  name: kentucky
+  abbreviated_name: KY
+  census_division_name: East South Central
+louisiana:
+  name: louisiana
+  abbreviated_name: LA
+  census_division_name: West South Central
+maine:
+  name: maine
+  abbreviated_name: ME
+  census_division_name: New England
+maryland:
+  name: maryland
+  abbreviated_name: MD
+  census_division_name: South Atlantic
+massachusetts:
+  name: massachusetts
+  abbreviated_name: MA
+  census_division_name: New England
+michigan:
+  name: michigan
+  abbreviated_name: MI
+  census_division_name: East North Central
+minnesota:
+  name: minnesota
+  abbreviated_name: MN
+  census_division_name: West North Central
+mississippi:
+  name: mississippi
+  abbreviated_name: MS
+  census_division_name: East South Central
+missouri:
+  name: missouri
+  abbreviated_name: MO
+  census_division_name: West North Central
+montana:
+  name: montana
+  abbreviated_name: MT
+  census_division_name: Mountain
+nebraska:
+  name: nebraska
+  abbreviated_name: NE
+  census_division_name: West North Central
+nevada:
+  name: nevada
+  abbreviated_name: NV
+  census_division_name: Mountain
+new hampshire:
+  name: new hampshire
+  abbreviated_name: NH
+  census_division_name: New England
+new jersey:
+  name: new jersey
+  abbreviated_name: NJ
+  census_division_name: Mid-Atlantic
+new mexico:
+  name: new mexico
+  abbreviated_name: NM
+  census_division_name: Mountain
+new york:
+  name: new york
+  abbreviated_name: NY
+  census_division_name: Mid-Atlantic
+north carolina:
+  name: north carolina
+  abbreviated_name: NC
+  census_division_name: South Atlantic
+north dakota:
+  name: north dakota
+  abbreviated_name: ND
+  census_division_name: West North Central
+ohio:
+  name: ohio
+  abbreviated_name: OH
+  census_division_name: East North Central
+oklahoma:
+  name: oklahoma
+  abbreviated_name: OK
+  census_division_name: West South Central
+oregon:
+  name: oregon
+  abbreviated_name: OR
+  census_division_name: Pacific
+pennsylvania:
+  name: pennsylvania
+  abbreviated_name: PA
+  census_division_name: Mid-Atlantic
+rhode island:
+  name: rhode island
+  abbreviated_name: RI
+  census_division_name: New England
+south carolina:
+  name: south carolina
+  abbreviated_name: SC
+  census_division_name: South Atlantic
+south dakota:
+  name: south dakota
+  abbreviated_name: SD
+  census_division_name: West North Central
+tennessee:
+  name: tennessee
+  abbreviated_name: TN
+  census_division_name: East South Central
+texas:
+  name: texas
+  abbreviated_name: TX
+  census_division_name: West South Central
+utah:
+  name: utah
+  abbreviated_name: UT
+  census_division_name: Mountain
+vermont:
+  name: vermont
+  abbreviated_name: VT
+  census_division_name: New England
+virginia:
+  name: virginia
+  abbreviated_name: VA
+  census_division_name: South Atlantic
+washington:
+  name: washington
+  abbreviated_name: WA
+  census_division_name: Pacific
+west virginia:
+  name: west virginia
+  abbreviated_name: WV
+  census_division_name: South Atlantic
+wisconsin:
+  name: wisconsin
+  abbreviated_name: WI
+  census_division_name: East North Central
+wyoming:
+  name: wyoming
+  abbreviated_name: WY
+  census_division_name: Mountain
