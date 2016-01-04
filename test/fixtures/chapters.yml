@@ -1,5 +1,4 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 SAMTAZ:
   name: SAMTAZ
   state: arizona
@@ -9,8 +8,8 @@ SAMCRO:
 SAMDINO:
   name: SAMDINO
   state: california
-"Devil's Tribe":
-  name: "Devil's Tribe"
+Devil's Tribe:
+  name: Devil's Tribe
   state: nevada
 RAHWAY:
   name: RAHWAY
