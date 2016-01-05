@@ -15,8 +15,9 @@ Rails.application.routes.draw do
 		end
 	end
 
-	get 'states/:id', to: 'states#show', as: :state
 	get 'home/:title' => 'home#index'
+	get 'states/:id', to: 'states#show', as: :state
+	get 'pages/:id', to: 'pages#show', as: :page
 	#get 'state/:state_name' => 'states#view'
 
   # Example of regular route:

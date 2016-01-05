@@ -1,0 +1,26 @@
+<%= render 'home/banner' %>
+
+<br><br>
+
+<content>
+	<div class="row">
+		<div class="large-12 columns">
+			<div class="row">
+				<%= render 'home/main_navigation' %>
+				<div class="large-9 medium-9 columns">
+					<hr class="top-hr" />
+						<h3><% if @page %><%= @page.sub_title %><% end %></h3>
+					<hr />
+					<p><% if @page %><%= @page.body.html_safe %><% end %></a>
+					<hr />
+				</div>
+			</div>
+		</div>
+	</div>
+</content>
+
+<%= render 'home/footer' %>
+
+<script>
+	$(document).foundation();
+</script>
