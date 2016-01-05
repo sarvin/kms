@@ -1,14 +1,8 @@
 <div class="large-3 medium-3 columns">
 	<p>
-		<a href="/" class="active small radius button">HOME</a><br/>
-		<% State.joins(:chapters).each do |state| %>
-			<%#- if params[:state_name] && params[:state_name] == state.name %>
-			<%#- else %>
-			<%= link_to state.name.upcase, state_path(state), class: "small radius button"%>
-			<%#- end %>
-		<% end %>
-		<a href="/home/history" class="small radius button">HISTORY</a><br/>
+		<%- get_main_navigation_link_list.each do |link| %>
+			<%= link %>
+		<%- end %>
 		<br/>
-			<!-- <a href="#" class="medium secondary button">WEB-LINKS</a> -->
 	</p>
 </div>
