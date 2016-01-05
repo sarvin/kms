@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
 	get 'home/:title' => 'home#index'
 	get 'states/:id', to: 'states#show', as: :state
+	get 'chapters/:id', to: 'chapters#show', as: :chapter
 	get 'pages/:id', to: 'pages#show', as: :page
 	#get 'state/:state_name' => 'states#view'
 
