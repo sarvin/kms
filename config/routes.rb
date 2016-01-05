@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
 	resources :states
 	get 'home/:title' => 'home#index'
-	get 'state/:state_name' => 'states#view'
+	#get 'state/:state_name' => 'states#view'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
