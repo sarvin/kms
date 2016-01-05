@@ -2,7 +2,10 @@
 	<p>
 		<a href="/" class="active small radius button">HOME</a><br/>
 		<% State.joins(:chapters).each do |state| %>
-			<a href="/state/<%= state.name %>" class="small radius button"><%= state.name.upcase %></a><br/>
+			<%#- if params[:state_name] && params[:state_name] == state.name %>
+			<%#- else %>
+			<%= link_to state.name.upcase, state_path(state), class: "small radius button"%>
+			<%#- end %>
 		<% end %>
 		<a href="/home/history" class="small radius button">HISTORY</a><br/>
 		<br/>
