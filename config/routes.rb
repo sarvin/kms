@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 		end
 	end
 
-	resources :states
+	get 'states/:id', to: 'states#show', as: :state
 	get 'home/:title' => 'home#index'
 	#get 'state/:state_name' => 'states#view'
 
