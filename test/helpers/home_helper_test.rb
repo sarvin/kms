@@ -29,6 +29,22 @@ class HomeHelperTest < ActionView::TestCase
 		end
 	end
 
+	test "No duplicate States in list" do
+		items = get_main_navigation_items
+
+		hash = Hash.new(0)
+
+		items.each do |item|
+			if item.instance_of?(State)
+				hash[item.id] +=1
+			end
+		end
+
+		hash.each do |id, count|
+			assert count == 1, "State with id #{id} found more than once"
+		end
+	end
+
 	test "Chapter object does not belong to a State" do
 		items = get_main_navigation_items
 
