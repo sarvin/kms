@@ -5,6 +5,9 @@ SAMTAZ:
 SAMCRO:
   name: SAMCRO
   state: california
+SAMWOOD:
+  name: SAMWOOD
+  state: california
 SAMDINO:
   name: SAMDINO
   state: california
