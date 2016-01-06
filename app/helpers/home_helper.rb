@@ -1,7 +1,7 @@
 module HomeHelper
   def get_main_navigation_items
     states = State.joins(:chapters)
-    chapters = Chapter.where('state_id' => nil)
+    chapters = Chapter.orphaned
     pages = Page.where('pageable_type' => nil)
 
     navigation_items = states + chapters + pages
