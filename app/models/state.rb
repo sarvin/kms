@@ -5,4 +5,6 @@ class State < ActiveRecord::Base
 	def titleize_name
 		name.titleize
 	end
+
+	scope :populated, -> { joins(:chapters).uniq }
 end
