@@ -1,6 +1,6 @@
 module HomeHelper
   def get_main_navigation_items
-    states = State.joins(:chapters)
+    states = State.populated
     chapters = Chapter.orphaned
     pages = Page.orphaned
 
