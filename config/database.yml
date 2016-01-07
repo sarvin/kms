@@ -52,3 +52,4 @@ production:
   database: kms_production
   username: kms_production
   password: <%= ENV['KMS_DATABASE_PASSWORD'] %>
+  host: <%= ENV['KMS_DATABASE_HOST'] %>
