@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: kms_production
-  username: kms
+  username: kms_production
   password: <%= ENV['KMS_DATABASE_PASSWORD'] %>
