@@ -13,50 +13,53 @@
 
 ActiveRecord::Schema.define(version: 20160103055159) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "chapters", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "state_id",   limit: 4
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "state_id"
   end
 
   add_index "chapters", ["state_id"], name: "index_chapters_on_state_id", using: :btree
 
   create_table "pages", force: :cascade do |t|
-    t.string   "title",         limit: 255
-    t.string   "sub_title",     limit: 255
-    t.text     "body",          limit: 65535
-    t.integer  "pageable_id",   limit: 4
-    t.string   "pageable_type", limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "title"
+    t.string   "sub_title"
+    t.text     "body"
+    t.integer  "pageable_id"
+    t.string   "pageable_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "pages", ["pageable_type", "pageable_id"], name: "index_pages_on_pageable_type_and_pageable_id", using: :btree
 
   create_table "states", force: :cascade do |t|
-    t.string   "name",                 limit: 255
-    t.string   "abbreviated_name",     limit: 255
-    t.string   "census_division_name", limit: 255
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.string   "name"
+    t.string   "abbreviated_name"
+    t.string   "census_division_name"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   add_index "states", ["name"], name: "index_states_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
