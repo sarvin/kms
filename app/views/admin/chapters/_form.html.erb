@@ -1,6 +1,6 @@
 <%= form_for [:admin, @chapter] do |f| %>
-	<% if @chapter.errors.any? %>
-		<div id="error_explanation">
+	<%- if @chapter.errors.any? %>
+		<div class="alert alert-warning" role="alert">
 			<h2>
 				<%= pluralize(@chapter.errors.count, "error") %> prohibited
 				this chapter from being saved:
@@ -11,12 +11,11 @@
 				<% end %>
 			</ul>
 		</div>
-	<% end %>
+	<%- end %>
 
-	<p>
-		<%= f.label :name %><br>
-		<%= f.text_field :name %>
-	</p>
+	<div class="input-group">
+		<%= f.text_field :name, class: "form-control", placeholder: "Chapter Name", :'aria-describedby' => "Name of Chapter"%>
+	</div>
 
 	<p>
 		<%= f.label :state %><br>
@@ -24,6 +23,7 @@
 	</p>
 
 	<p>
-		<%= f.submit %>
-	</p>
-<% end %>
+	<div class="input-group">
+		<%= f.submit "Create Chapter", class: "btn btn-primary btn-sm " %>
+	</div>
+<%- end %>
