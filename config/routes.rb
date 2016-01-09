@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
 	namespace :admin do
+    root 'chapters#index'
 		resources :pages
 
 		resources :chapters do
