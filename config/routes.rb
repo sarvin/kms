@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
 	namespace :admin do
     root 'chapters#index'
-		resources :pages
+
+		resources :pages, only: [:index, :create, :new, :edit, :update, :destroy]
 
 		resources :chapters do
 			resources :pages
