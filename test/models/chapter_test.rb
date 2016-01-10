@@ -17,7 +17,7 @@ class ChapterTest < ActiveSupport::TestCase
     chapters = Chapter.adopted
 
     chapters.each do |chapter|
-				assert chapter.state.nil? == false, "State not associated with chapter: #{chapter.inspect}"
+      assert chapter.state.nil? == false, "State not associated with chapter: #{chapter.inspect}"
     end
   end
 end
