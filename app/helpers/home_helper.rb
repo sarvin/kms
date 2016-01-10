@@ -12,6 +12,8 @@ module HomeHelper
   def sort_navigation_items_for_main_navigation navigation_items
     item_hash = {}
     item_is_page = []
+    item_is_last_in_navigation = nil
+
 
     navigation_items.each do |item|
       if item.instance_of?(State)
@@ -32,8 +34,14 @@ module HomeHelper
       if item.title? && item.title.downcase == 'home'
         sorted_items.unshift(item)
       elsif item.title? && item.title.downcase == 'history'
+        item_is_last_in_navigation = item
+      else
         sorted_items.push(item)
       end
+    end
+
+    if item_is_last_in_navigation
+      sorted_items.push(item_is_last_in_navigation)
     end
 
     return sorted_items
