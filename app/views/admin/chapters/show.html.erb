@@ -1,19 +1,28 @@
-<p>
-	<strong>Name:</strong>
-	<%= @chapter.name %>
-</p>
- 
-<p>
-	<strong>State:</strong>
-	<%- if @chapter.state %>
-		<%= @chapter.state.titleize_name %>
-	<%- else %>
-		Chapter not associated with a State
-	<%- end %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading"><%= @chapter.name %></div>
+  <!-- Table -->
+  <table class="table">
+		<thead>
+			<tr>
+				<th>State</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+				<%- if @chapter.state %>
+					<%= @chapter.state.titleize_name %>
+				<%- else %>
+					Chapter not associated with a State
+				<%- end %>
+				</td>
+			</tr>
+		</tbody>
+  </table>
+</div>
 
-<%= link_to 'Edit', edit_admin_chapter_path(@chapter) %> |
-<%= link_to 'Back', admin_chapters_path %>
+<%= link_to 'Edit', edit_admin_chapter_path(@chapter), class: 'btn btn-primary btn-sm' %>
+<%= link_to 'Back', admin_chapters_path, class: 'btn btn-default btn-sm' %>
 
 
 <%= render 'form_for_page' %>
