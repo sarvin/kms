@@ -67,8 +67,8 @@ class HomeHelperTest < ActionView::TestCase
 		menu_items = get_main_navigation_items
 		ordered_menu_items = sort_navigation_items_for_main_navigation(menu_items)
 
-		assert ordered_menu_items.last.instance_of?(Page)
-		assert ordered_menu_items.last.title == 'history'
+		assert ordered_menu_items.last.instance_of?(Page), 'Last element in array is an instance of the Page class'
+		assert ordered_menu_items.last.title == 'history', 'Last element in array has a title of \'history\''
   end
 
   test "generate_menu_item_info returns proper urls" do
