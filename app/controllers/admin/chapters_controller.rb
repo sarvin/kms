@@ -14,7 +14,8 @@ class Admin::ChaptersController < Admin::BaseController
 	end
 
 	def index
-		@chapters = Chapter.all
+    @orphaned_chapters = Chapter.orphaned
+    @adopted_chapters = Chapter.adopted
 	end
 
 	def edit
