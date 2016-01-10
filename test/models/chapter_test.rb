@@ -9,7 +9,7 @@ class ChapterTest < ActiveSupport::TestCase
     chapters = Chapter.orphaned
 
     chapters.each do |chapter|
-				assert chapter.state.nil? == true, "State associated with chapter #{chapter.id}"
+      assert chapter.state.nil? == true, "State associated with chapter #{chapter.id}"
     end
   end
 
