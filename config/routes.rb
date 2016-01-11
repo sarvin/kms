@@ -23,6 +23,12 @@ Rails.application.routes.draw do
 	get 'chapters/:id', to: 'chapters#show', as: :chapter
 	get 'pages/:id', to: 'pages#show', as: :page
 
+
+  if Rails.env.development?
+    # view emails in development environment
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

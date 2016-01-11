@@ -49,6 +49,10 @@ Rails.application.configure do
 	# In production, :host should be set to the actual host of your application. 
 	config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  # test email in development environment
+  # If not everyone on the team is using vagrant
+  config.action_mailer.delivery_method = ENV['USER'] == 'vagrant' ? :letter_opener_web : :letter_opener
+
   # https://github.com/rails/web-console#configuration
   config.web_console.whitelisted_ips = '10.0.2.2'
 end

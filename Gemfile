@@ -46,6 +46,8 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'pry'
+  gem 'letter_opener'
+  gem 'letter_opener_web', '~> 1.2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -54,3 +56,5 @@ end
 # Heroku integration
 gem 'rails_12factor', group: :production
 ruby "2.2.3"
+
+# visually test email sent in develpment environment
