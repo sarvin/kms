@@ -13,3 +13,4 @@
 /tmp
 
 *.swp
+\.byebug_history
