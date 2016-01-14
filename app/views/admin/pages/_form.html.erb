@@ -1,18 +1,17 @@
-<h1>Edit <%= @page.title %> Page</h1>
 <%= form_for([:admin, @page]) do |f| %>
-	<% if @page.errors.any? %>
+	<%- if @page.errors.any? %>
 		<div id="error_explanation">
 			<h2>
 				<%= pluralize(@page.errors.count, "error") %> prohibited
-				this chapter from being saved:
+				this page from being saved:
 			</h2>
 			<ul>
-				<% @page.errors.full_messages.each do |msg| %>
+				<%- @page.errors.full_messages.each do |msg| %>
 					<li><%= msg %></li>
-				<% end %>
+				<%- end %>
 			</ul>
 		</div>
-	<% end %>
+	<%- end %>
 	<p>
 		<%= f.label :title %><br>
 		<%= f.text_field :title %>
@@ -29,5 +28,5 @@
 	<p>
 		<%= f.submit %>
 	</p>
-<% end %>
+<%- end %>
 <%= link_to 'Back', admin_pages_path(@page) %>
