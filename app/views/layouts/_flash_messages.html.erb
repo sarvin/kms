@@ -1,0 +1,15 @@
+<%- if notice %>
+	<div data-alert class="alert-box success radius">
+		<%= notice %>
+	</div>
+<%- end %>
+<%- if flash[:info] %>
+	<div data-alert class="alert-box info radius">
+		<%= flash[:info] %>
+	</div>
+<%- end %>
+<%- if alert %>
+	<div data-alert class="alert-box alert radius">
+		<%= alert %>
+	</div>
+<%- end %>
