@@ -20,4 +20,5 @@ Rails.application.configure do
 	config.assets.precompile += %w( admin/application.scss )
 	config.assets.precompile += %w( foundation.js )
 	config.assets.precompile += %w( foundation.css )
+  config.assets.precompile += %w(bootsy/*.gif)
 end
