@@ -80,6 +80,7 @@ Rails.application.configure do
   # http://stackoverflow.com/questions/6019083/setting-up-devise-sendgrid-on-heroku
   # Setting up Devise and Sendgrid on Heroku
   #config.action_mailer.default_url_options = { :host => 'your.websitedomain.com' }
+  config.action_mailer.default_url_options = { :host => 'stormy-retreat-1506.herokuapp.com' }
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
     :port           => '587',
