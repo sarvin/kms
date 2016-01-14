@@ -76,4 +76,18 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # http://stackoverflow.com/questions/6019083/setting-up-devise-sendgrid-on-heroku
+  # Setting up Devise and Sendgrid on Heroku
+  #config.action_mailer.default_url_options = { :host => 'your.websitedomain.com' }
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'heroku.com',
+    #:domain         => ENV['SENDGRID_DOMAIN']
+    :enable_starttls_auto => true
+  }
 end
