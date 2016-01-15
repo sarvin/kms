@@ -25,6 +25,16 @@
 						<li><%= link_to 'View', admin_pages_path %></li>
 					</ul>
 				</li>
+				<%- if Rails.env.development? %>
+				<li class="dropdown">
+					<%= link_to admin_pages_path, class: 'dropdown-toggle', :'data-toggle' => 'dropdown', role: "button", :'aria-haspopup' => 'true', :'aria-expanded' => 'false' do %>
+						Debug <span class="caret"></span>
+					<%- end %>
+					<ul class="dropdown-menu">
+						<li><%= link_to 'Letter Opener', letter_opener_web_path %></li>
+					</ul>
+				</li>
+				<%- end %>
 			</ul>
 			<p class="navbar-text navbar-right">
 				<%- if user_signed_in? %>
