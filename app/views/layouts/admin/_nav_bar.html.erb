@@ -25,8 +25,11 @@
 						<li><%= link_to 'View', admin_pages_path %></li>
 					</ul>
 				</li>
+
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
 				<%- if Rails.env.development? %>
-				<li class="dropdown">
+				<li class="dropdown ">
 					<%= link_to admin_pages_path, class: 'dropdown-toggle', :'data-toggle' => 'dropdown', role: "button", :'aria-haspopup' => 'true', :'aria-expanded' => 'false' do %>
 						Debug <span class="caret"></span>
 					<%- end %>
@@ -35,14 +38,14 @@
 					</ul>
 				</li>
 				<%- end %>
-			</ul>
-			<p class="navbar-text navbar-right">
+				<li>
 				<%- if user_signed_in? %>
 					<%= link_to("Signed in as #{current_user.email}", destroy_user_session_path, class: 'navbar-link', :method => :delete) %>
 				<%- else %>
 					<%= link_to('Login', new_user_session_path)  %>
 				<%- end %>
-			</p>
+				</li>
+			</ul>
 		</div>
   </div>
 </nav>
