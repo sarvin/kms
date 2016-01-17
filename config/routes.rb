@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     root 'chapters#index'
 
 		resources :pages, only: [:index, :create, :new, :edit, :update, :destroy]
-		resources :users, only: [:index]
+		resources :users, only: [:index, :show]
 
 		resources :chapters do
 			resources :pages
