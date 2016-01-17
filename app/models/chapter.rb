@@ -6,6 +6,7 @@ class Chapter < ActiveRecord::Base
 	belongs_to :state
 
 	has_one :page, :as => :pageable, dependent: :destroy
+	has_many :users, dependent: :nullify
 	#accepts_nested_attributes_for :page
 
 	scope :adopted, -> { where.not(state_id: nil) }
