@@ -1,11 +1,35 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+Alexander Trager:
+  email: tig@samcro.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  sign_in_count: 14
+  chapter_id: SAMCRO
 
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-#one: {}
-# column: value
-#
-#two: {}
-#  column: value
+Happy Lowman:
+  email: happy@samcro.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  sign_in_count: 10
+  chapter_id: SAMCRO
+
+Rane Quinn:
+  email: rane@samcro.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  sign_in_count: 4
+  chapter_id: SAMBEL
+
+Allesandro Montez:
+  email: allesandro@samcro.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  sign_in_count: 9
+  chapter_id: Devil's Tribe
+
+Taddarius Cross:
+  email: ~addarius@samcro.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  sign_in_count: 30
+  chapter_id: SAMCRO
+
+Keith McGee:
+  email: keith@samcro.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  sign_in_count: 0
+  chapter_id: SAMBEL
