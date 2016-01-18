@@ -9,7 +9,7 @@ class StateTest < ActiveSupport::TestCase
     states = State.populated
 
     states.each do |state|
-      assert state.chapters.empty? == false, "State should have chapters associated with it"
+      assert_not state.chapters.empty?, "State should have chapters associated with it"
     end
   end
 
