@@ -3,6 +3,7 @@ Alexander Trager:
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   sign_in_count: 14
   chapter_id: SAMCRO
+  confirmed_at: <%= Time.now %>
 
 Happy Lowman:
   email: happy@samcro.com
