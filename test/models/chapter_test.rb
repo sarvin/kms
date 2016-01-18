@@ -5,7 +5,7 @@ class ChapterTest < ActiveSupport::TestCase
     chapters = Chapter.orphaned
 
     chapters.each do |chapter|
-      assert chapter.state.nil? == true, "State associated with chapter #{chapter.id}"
+      assert chapter.state.nil?, "State associated with chapter #{chapter.id}"
     end
   end
 
@@ -13,7 +13,7 @@ class ChapterTest < ActiveSupport::TestCase
     chapters = Chapter.adopted
 
     chapters.each do |chapter|
-      assert chapter.state.nil? == false, "State not associated with chapter: #{chapter.inspect}"
+      assert_not chapter.state.nil?, "State not associated with chapter: #{chapter.inspect}"
     end
   end
 
