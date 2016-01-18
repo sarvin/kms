@@ -20,6 +20,10 @@
     </div>
   </fieldset>
 
+  <%- unless @user.persisted? %>
+    <%= f.hidden_field :password, :value => @user.password %>
+  <%- end %>
+
   <fieldset class="form-group">
     <%= f.label :name_last, 'Last Name' %>
     <div class="input-group">
