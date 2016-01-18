@@ -36,7 +36,7 @@
 
   <fieldset class="form-group">
 		<%= f.label :chapter %>
-		<%= f.collection_select :chapter_id, Chapter.order(:name), :id, :titleize_name, prompt: true, class: 'form-control' %>
+		<%= f.collection_select :chapter_id, Chapter.order(:name), :id, :titleize_name, {prompt: true}, {class: 'form-control'} %>
   </fieldset>
 
 	<p>
