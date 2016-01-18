@@ -6,7 +6,7 @@ class UserTest < ActiveSupport::TestCase
     users = User.orphaned
 
     users.each do |user|
-      assert user.chapter_id? == false
+      assert_not user.chapter_id?, 'User.orphaned should only return users not associated with a chapter'
     end
   end
 end
