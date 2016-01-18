@@ -39,7 +39,6 @@
 		<%= f.collection_select :chapter_id, Chapter.order(:name), :id, :titleize_name, {prompt: true}, {class: 'form-control'} %>
   </fieldset>
 
-	<p>
 	<div class="input-group">
 		<%= f.submit "Save", class: "btn btn-primary btn-sm " %>
 		<%#= link_to 'Back', admin_chapters_path, class: 'btn btn-default btn-sm'%>
