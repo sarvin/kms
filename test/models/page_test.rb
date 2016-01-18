@@ -5,7 +5,7 @@ class PageTest < ActiveSupport::TestCase
     pages = Page.orphaned
 
     pages.each do |page|
-      assert page.pageable.nil? == true, "Page should not be associated with another object  #{page.inspect}"
+      assert page.pageable.nil?, "Page should not be associated with another object  #{page.inspect}"
     end
   end
 end
