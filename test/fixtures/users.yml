@@ -33,3 +33,8 @@ Keith McGee:
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   sign_in_count: 0
   chapter_id: SAMBEL
+
+Juan Carlos Ortiz:
+  email: juice@samcro.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  sign_in_count: 20
