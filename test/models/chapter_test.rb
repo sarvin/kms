@@ -1,10 +1,6 @@
 require 'test_helper'
 
 class ChapterTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-  #
   test "orphaned Chapter objects don't belong to a State object" do
     chapters = Chapter.orphaned
 
@@ -19,5 +15,20 @@ class ChapterTest < ActiveSupport::TestCase
     chapters.each do |chapter|
       assert chapter.state.nil? == false, "State not associated with chapter: #{chapter.inspect}"
     end
+  end
+
+  test "name is present" do
+    chapter = Chapter.new
+
+    assert_not chapter.save, "name has to be present"
+  end
+
+  test "name is unique" do
+    existing_chapter = Chapter.take
+    new_chapter = Chapter.new
+
+    new_chapter.name= existing_chapter.name
+
+    assert_not new_chapter.save, "name has to be unique"
   end
 end
