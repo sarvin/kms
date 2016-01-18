@@ -1,29 +1,29 @@
 <% if @chapter.page %>
 <div class='bs-callout'>
-	<h2>Page</h2>
-	<p>
-		<strong>Title:</strong>
-		<%= @chapter.page.title %>
-	</p>
-	
-	<p>
-		<strong>Sub-Title:</strong>
-		<%= @chapter.page.sub_title %>
-	</p>
+  <h2>Page</h2>
+  <p>
+    <strong>Title:</strong>
+    <%= @chapter.page.title %>
+  </p>
 
-	<p>
-		<strong>Body:</strong>
-		<%= @chapter.page.body %>
-	</p>
+  <p>
+    <strong>Sub-Title:</strong>
+    <%= @chapter.page.sub_title %>
+  </p>
+
+  <p>
+    <strong>Body:</strong>
+    <%= @chapter.page.body %>
+  </p>
 </div>
 
-	<%= link_to 'Edit', edit_admin_chapter_page_path(@chapter, @chapter.page), class: 'btn btn-primary btn-sm' %>
-	<%= link_to 'Delete Page', [:admin, @chapter, @chapter.page],
-		method: :delete,
-		data: { confirm: 'Are you sure?' },
-		class: 'btn btn-danger btn-sm'
-	%>
+  <%= link_to 'Edit', edit_admin_chapter_page_path(@chapter, @chapter.page), class: 'btn btn-primary btn-sm' %>
+  <%= link_to 'Delete Page', [:admin, @chapter, @chapter.page],
+    method: :delete,
+    data: { confirm: 'Are you sure?' },
+    class: 'btn btn-danger btn-sm'
+  %>
 <% else %>
-	<h2>Add a Page:</h2>
-	<%= render :partial => 'admin/pages/form_polymorphic', :locals => {:pageable => @chapter} %>
+  <h2>Add a Page:</h2>
+  <%= render :partial => 'admin/pages/form_polymorphic', :locals => {:pageable => @chapter} %>
 <% end %>

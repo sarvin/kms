@@ -1,15 +1,15 @@
 <%- if chapters.any? %>
 <div class="panel panel-default">
   <table class="table">
-		<caption><%= description %></caption>
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>State</th>
-				<th colspan="3"></th>
-			</tr>
-		</thead>
-		<tbody>
+    <caption><%= description %></caption>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>State</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
     <% sort_chapters_by_state(chapters).each do |chapter| %>
       <tr>
         <td><%= chapter.name %></td>
@@ -34,7 +34,7 @@
         </td>
       </tr>
     <%- end %>
-		</tbody>
-	</table><br />
+    </tbody>
+  </table><br />
 </div>
 <%- end %>

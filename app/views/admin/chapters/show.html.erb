@@ -2,22 +2,22 @@
   <div class="panel-heading"><%= @chapter.name %></div>
   <!-- Table -->
   <table class="table">
-		<thead>
-			<tr>
-				<th>State</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>
-				<%- if @chapter.state %>
-					<%= @chapter.state.titleize_name %>
-				<%- else %>
-					Chapter not associated with a State
-				<%- end %>
-				</td>
-			</tr>
-		</tbody>
+    <thead>
+      <tr>
+        <th>State</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+        <%- if @chapter.state %>
+          <%= @chapter.state.titleize_name %>
+        <%- else %>
+          Chapter not associated with a State
+        <%- end %>
+        </td>
+      </tr>
+    </tbody>
   </table>
 </div>
 
