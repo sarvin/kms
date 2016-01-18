@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
   belongs_to :chapter
 	scope :orphaned, -> { where(chapter_id: nil) }
+
+  def name
+    "#{name_first} #{name_last}".titleize
+  end
 end
