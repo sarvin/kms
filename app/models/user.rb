@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :chapter
+  has_one :address, :as => :addressable
+    accepts_nested_attributes_for :address
+
 	scope :orphaned, -> { where(chapter_id: nil) }
 
   def name
