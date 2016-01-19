@@ -12,6 +12,19 @@
       </ul>
     </div>
   <%- end %>
+  <%- if !@user.address.nil? and @user.address.errors.any? %>
+    <div class="alert alert-warning" role="alert">
+      <h2>
+        <%= pluralize(@user.errors.count, "error") %> prohibited
+        this chapter from being saved:
+      </h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <%- end %>
 
   <fieldset class="form-group">
     <%= f.label :name_first, 'First Name' %>
@@ -35,14 +48,20 @@
     <%= f.label :email %>
     <div class="input-group">
       <span class="input-group-addon">@</span>
-      <%= f.text_field :email, class: "form-control", placeholder: "Email Address", :'aria-describedby' => "Member's email address"%>
+      <%= f.email_field :email, class: "form-control", placeholder: "Email Address", :'aria-describedby' => "Member's email address"%>
     </div>
   </fieldset>
 
   <fieldset class="form-group">
     <%= f.label :chapter %>
-    <%= f.collection_select :chapter_id, Chapter.order(:name), :id, :titleize_name, {prompt: true}, {class: 'form-control'} %>
+    <div class="input-group">
+      <%= f.collection_select :chapter_id, Chapter.order(:name), :id, :titleize_name, {prompt: true}, {class: 'form-control'} %>
+    </div>
   </fieldset>
+
+  <%= f.fields_for :address do |address| %>
+    <%= render :partial => 'admin/addresses/address', :locals => {:f => address} %>
+  <%- end %>
 
   <div class="input-group">
     <%= f.submit "Save", class: "btn btn-primary btn-sm " %>

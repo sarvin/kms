@@ -1,0 +1,31 @@
+<fieldset class="form-group">
+  <%= f.label :line_1, 'Address' %><br />
+  <div class="input-group">
+    <%= f.text_field :line_1, class: "form-control", placeholder: "Street address, P.O. box, company name, c/o", :'aria-describedby' => "First line of address" %>
+  </div>
+  <%= f.label :line_2, 'Address 1', class: 'sr-only' %>
+  <div class="input-group">
+    <%= f.text_field :line_2, class: "form-control", placeholder: "Apartment, suite, unit, building, floor, etc.", :'aria-describedby' => "Second line of address" %>
+  </div>
+</fieldset>
+
+<fieldset class="form-group">
+  <%= f.label :city %>
+  <div class="input-group">
+    <%= f.text_field :city, class: "form-control", placeholder: "City", :'aria-describedby' => "City the member lives in" %>
+  </div>
+</fieldset>
+
+<fieldset class="form-group">
+  <%= f.label :state %>
+  <div class="input-group">
+    <%= f.collection_select :state_id, State.order(:name), :id, :abbreviated_name, {prompt: true}, {class: 'form-control'} %>
+  </div>
+</fieldset>
+
+<fieldset class="form-group">
+  <%= f.label :postal_code, 'Zipcode' %><br />
+  <div class="input-group">
+    <%= f.text_field :postal_code %>
+  </div>
+</fieldset>
