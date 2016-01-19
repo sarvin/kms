@@ -2,6 +2,16 @@ class Address < ActiveRecord::Base
   belongs_to :state
   belongs_to :addressable, polymorphic: true
 
+  def columns_generated_by_user_populated?
+    attributes_hash = attributes
+
+    self.class.columns_generated_by_user.each do |column|
+      return true if attributes_hash[column]
+    end
+
+    false
+  end
+
   def self.columns_generated_by_user
     important_fields = []
     columns_generated_programmatically = {
