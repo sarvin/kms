@@ -76,8 +76,6 @@ class Admin::UsersControllerTest < ActionController::TestCase
     @user.confirm
     sign_in :user, @user
 
-    line_1 = 'first line in address'
-
     ### Act
     stuff = post(
       :create,
