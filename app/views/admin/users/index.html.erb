@@ -2,9 +2,7 @@
   <h1>Members</h1>
 </div>
 <%- sort_chapters_by_state(@chapters).each do |chapter| %>
-  <%- users = chapter.users %>
-  <%= render partial: "users_table", locals: { chapter: chapter, users: users } %>
+  <%= render partial: "users_table", locals: { chapter: chapter, users: chapter.users } %>
 <%- end %>
 
-<%- users = User.orphaned %>
-<%= render partial: "users_table", locals: { chapter: nil, users: users } %>
+<%= render partial: "users_table", locals: { chapter: nil, users: User.orphaned } %>
