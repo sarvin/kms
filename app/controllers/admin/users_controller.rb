@@ -18,23 +18,16 @@ class Admin::UsersController < Admin::BaseController
 
   def edit
     @user = User.find(params[:id])
+
+    if @user.address.nil?
+      @user.build_address
+    end
   end
 
   def create
-    user_attributes = user_params
-    address_attributes = user_attributes.delete(:address_attributes)
-
-    @user = User.new(user_attributes)
+    @user = User.new(user_params)
 
     if @user.save
-      ### build_address after saving user otherwise address will always be saved
-      ### regardless if columns_generated_by_user_populated?
-      @user.build_address(address_attributes)
-
-      if @user.address.columns_generated_by_user_populated?
-        @user.address.save
-      end
-
       redirect_to [:admin, @user]
     else
       render 'new'
@@ -51,7 +44,7 @@ class Admin::UsersController < Admin::BaseController
     end
   end
 
-private
+  private
   def user_params
     ### Remove the password key of the params hash if it’s blank.
     ### If not, Devise will fail to validate.
@@ -62,7 +55,7 @@ private
 
     params.require(:user).permit(
       :name_first, :name_last, :chapter_id, :email, :password,
-      address_attributes: [:line_1, :line_2, :city, :state_id, :postal_code]
+      address_attributes: [:id, :line_1, :line_2, :city, :state_id, :postal_code]
     )
   end
 end
