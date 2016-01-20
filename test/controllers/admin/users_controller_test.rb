@@ -70,7 +70,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
     assert_redirected_to admin_user_path(assigns(:user))
   end
 
-  test "update user" do
+  test 'update user' do
     ### Arrange
     user_attributes = {name_last: 'test_last_name'}
     user_attributes[:address_attributes] = self.class.address_attributes
@@ -95,6 +95,40 @@ class Admin::UsersControllerTest < ActionController::TestCase
     assert_redirected_to admin_user_path(assigns(:user))
   end
 
+  test 'show user with no address associated' do
+    ### Arrange
+    ### need a user to be signed in before reaching admin interface
+    @user = User.take
+    @user.confirm
+    sign_in :user, @user
+
+    ### Act
+    get(:show, {id: @user.id})
+
+    ### Assert
+    assert_response :success, "Should be successfully viewing admin/users"
+    assert assigns(:chapters)
+  end
+
+  test 'show user with address associated and chapter associated with chapter' do
+    ### Arrange
+    ### need a user to be signed in before reaching admin interface
+    @user = User.where.not(chapter_id: nil).first
+    @chapter = Chapter.take
+    @address = Address.new()
+    @user.address= @address
+    @user.save
+
+    @user.confirm
+    sign_in :user, @user
+
+    ### Act
+    get(:show, {id: @user.id})
+
+    ### Assert
+    assert_response :success, "Should be successfully viewing admin/users"
+    assert assigns(:user)
+  end
 private
 
   def self.user_attributes
