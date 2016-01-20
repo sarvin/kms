@@ -7,7 +7,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def show
-    @user = User.includes(:chapter).find(params[:id])
+    @user = User.includes(:chapter).includes(:address).find(params[:id])
   end
 
   def new
