@@ -11,7 +11,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
 
     get :index
     assert_response :success, "Should be successfully viewing admin/users"
-    assert_not_nil assigns(:chapters)
+    assert assigns(:chapters)
   end
 
   test "should get new" do
@@ -22,8 +22,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
 
     get :new
     assert_response :success, "Should be successfully viewing admin/users"
-    assert_not_nil assigns(:user)
-
+    assert assigns(:user)
     assert_select '#user_password', @user.password
   end
 
@@ -37,13 +36,14 @@ class Admin::UsersControllerTest < ActionController::TestCase
     sign_in :user, @user
 
     ### Act
-    stuff = post(
+    post(
       :create,
       :user => user_attributes
     )
 
     new_user = User.find_by name_first: user_attributes[:name_first]
     assert defined?(new_user), 'User should be created'
+    assert_redirected_to admin_user_path(assigns(:user)), 'should be redirected after post'
   end
 
   test "create action with nested address should create a new user and address" do
@@ -67,6 +67,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
     ### Assert
     assert defined?(new_user), 'User should be created'
     assert_equal new_user.address.line_1, user_attributes[:address_attributes][:line_1], "First line in address should equal"
+    assert_redirected_to admin_user_path(assigns(:user))
   end
 
   test "update user" do
@@ -91,6 +92,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
     ### Assert
     assert_equal user.name_last, user_attributes[:name_last], "name_last shoudl be set to #{user_attributes[:name_last]}"
     assert_not_nil user.address, "address object not nil"
+    assert_redirected_to admin_user_path(assigns(:user))
   end
 
 private
