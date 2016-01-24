@@ -33,6 +33,9 @@ gem 'bootsy'
 
 gem 'bootstrap-sass'
 
+### A Ruby on Rails roles solution.
+gem 'royce'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

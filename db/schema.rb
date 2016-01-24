@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119044105) do
+ActiveRecord::Schema.define(version: 20160124052337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,35 @@ ActiveRecord::Schema.define(version: 20160119044105) do
   end
 
   add_index "pages", ["pageable_type", "pageable_id"], name: "index_pages_on_pageable_type_and_pageable_id", using: :btree
+
+  create_table "public_navigations", force: :cascade do |t|
+    t.integer  "order"
+    t.integer  "navigable_id"
+    t.string   "navigable_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "public_navigations", ["navigable_type", "navigable_id"], name: "index_public_navigations_on_navigable_type_and_navigable_id", using: :btree
+
+  create_table "royce_connector", force: :cascade do |t|
+    t.integer  "roleable_id",   null: false
+    t.string   "roleable_type", null: false
+    t.integer  "role_id",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "royce_connector", ["role_id"], name: "index_royce_connector_on_role_id", using: :btree
+  add_index "royce_connector", ["roleable_id", "roleable_type"], name: "index_royce_connector_on_roleable_id_and_roleable_type", using: :btree
+
+  create_table "royce_role", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "royce_role", ["name"], name: "index_royce_role_on_name", using: :btree
 
   create_table "states", force: :cascade do |t|
     t.string   "name"
