@@ -4,10 +4,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
   test "should get index" do
-    @user = User.take
-    @user.confirm
-
-    sign_in :user, @user
+    @user = sign_in_user(User.take)
 
     get :index
     assert_response :success, "Should be successfully viewing admin/users"
@@ -15,10 +12,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    @user = User.take
-    @user.confirm
-
-    sign_in :user, @user
+    @user = sign_in_user(User.take)
 
     get :new
     assert_response :success, "Should be successfully viewing admin/users"
@@ -30,10 +24,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
     ### Arrange
     user_attributes = self.class.user_attributes
 
-    ### need a user to be signed in before reaching admin interface
-    @user = User.take
-    @user.confirm
-    sign_in :user, @user
+    @user = sign_in_user(User.take)
 
     ### Act
     post(
@@ -141,10 +132,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
 
   test 'show user with no address associated' do
     ### Arrange
-    ### need a user to be signed in before reaching admin interface
-    @user = User.take
-    @user.confirm
-    sign_in :user, @user
+    @user = sign_in_user(User.take)
 
     ### Act
     get(:show, {id: @user.id})
@@ -163,8 +151,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
     @user.address= @address
     @user.save
 
-    @user.confirm
-    sign_in :user, @user
+    @user = sign_in_user(@user)
 
     ### Act
     get(:show, {id: @user.id})
