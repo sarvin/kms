@@ -107,7 +107,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
 
     ### Assert
     assert_response :success, "Should be successfully viewing admin/users"
-    assert assigns(:chapters)
+    assert assigns(:user)
   end
 
   test 'show user with address associated and chapter associated with chapter' do
