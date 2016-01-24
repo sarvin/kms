@@ -52,9 +52,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
     user_attributes[:address_attributes] = self.class.address_attributes
 
     ### need a user to be signed in before reaching admin interface
-    @user = User.take
-    @user.confirm
-    sign_in :user, @user
+    @user = sign_in_user(User.take)
 
     ### Act
     stuff = post(
@@ -70,6 +68,28 @@ class Admin::UsersControllerTest < ActionController::TestCase
     assert new_user.has_role?('prospect'), 'Prospect added to new user on creation'
     assert_equal 1, new_user.role_list.length, 'single role assigned to new user'
     assert_redirected_to admin_user_path(assigns(:user))
+  end
+
+  test "create does not add additional roles" do
+    ### Arrange
+    user_attributes = self.class.user_attributes
+    user_attributes[:address_attributes] = self.class.address_attributes
+    add_role_parameters(user_attributes)
+
+    ### need a user to be signed in before reaching admin interface
+    @user = sign_in_user(User.take)
+
+    ### Act
+    stuff = post(
+      :create,
+      :user => user_attributes
+    )
+
+    new_user = User.find_by name_first: user_attributes[:name_first]
+
+    ### Assert
+    assert new_user.has_role?('prospect'), 'Prospect added to new user on creation'
+    assert_equal 1, new_user.role_list.length, 'single role assigned to new user'
   end
 
   test 'update user' do
@@ -153,5 +173,16 @@ private
       state_id: "",
       postal_code: ""
     }
+  end
+
+  def sign_in_user(user)
+    user.confirm
+    sign_in :user, user
+
+    return user
+  end
+
+  def add_role_parameters(params)
+    params[:role_names] = User.available_role_names.sample(3)
   end
 end
