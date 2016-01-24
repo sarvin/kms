@@ -17,4 +17,16 @@ class UserTest < ActiveSupport::TestCase
 
     assert_equal "#{name_first} #{name_last}".titleize, user.name
   end
+
+  test "set_default_role should set user as prospect by default" do
+    ### Arrange
+    user = User.new(name_first: 'Izzy', name_last: 'Isdizzy')
+
+    ### Act
+    active_record_proxy_collection = user.send(:set_default_role)
+    roles = active_record_proxy_collection.select{|x| x.class.name === 'Royce::Role' and x.name === 'prospect'}
+
+    ### Assert
+    assert_equal 1, roles.length, 'One Royce::Role should be prospect'
+  end
 end
