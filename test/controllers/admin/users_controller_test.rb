@@ -117,6 +117,28 @@ class Admin::UsersControllerTest < ActionController::TestCase
     assert_redirected_to admin_user_path(assigns(:user))
   end
 
+  test 'update user with roles' do
+    ### Arrange
+    user_attributes = {name_last: 'test_last_name'}
+    user_attributes[:address_attributes] = self.class.address_attributes
+    add_role_parameters(user_attributes)
+
+    ### need a user to be signed in before reaching admin interface
+    @user = sign_in_user(User.take)
+
+    ### Act
+    patch(
+      :update,
+      id: @user.id,
+      user: user_attributes
+    )
+
+    user = User.find(@user.id)
+
+    ### Assert
+    assert ((user.role_list - user_attributes[:role_names]) + (user_attributes[:role_names] - user.role_list)).blank?, 'user should have roles set in add_role_parameters'
+  end
+
   test 'show user with no address associated' do
     ### Arrange
     ### need a user to be signed in before reaching admin interface
