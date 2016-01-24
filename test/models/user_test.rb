@@ -15,6 +15,6 @@ class UserTest < ActiveSupport::TestCase
     name_last = 'yyy'
     user = User.new(name_first: name_first, name_last: name_last)
 
-    assert user.name == "#{name_first} #{name_last}".titleize
+    assert_equal "#{name_first} #{name_last}".titleize, user.name
   end
 end
