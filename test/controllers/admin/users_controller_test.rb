@@ -40,7 +40,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
   test "create action with nested address should create a new user and address" do
     ### Arrange
     user_attributes = self.class.user_attributes
-    user_attributes[:address_attributes] = self.class.address_attributes
+    add_address_attributes(user_attributes)
 
     ### need a user to be signed in before reaching admin interface
     @user = sign_in_user(User.take)
@@ -64,7 +64,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
   test "create does not add additional roles" do
     ### Arrange
     user_attributes = self.class.user_attributes
-    user_attributes[:address_attributes] = self.class.address_attributes
+    add_address_attributes(user_attributes)
     add_role_parameters(user_attributes)
 
     ### need a user to be signed in before reaching admin interface
@@ -86,7 +86,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
   test 'update user' do
     ### Arrange
     user_attributes = {name_last: 'test_last_name'}
-    user_attributes[:address_attributes] = self.class.address_attributes
+    add_address_attributes(user_attributes)
 
     ### need a user to be signed in before reaching admin interface
     @user = User.take
@@ -111,7 +111,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
   test 'update user with roles' do
     ### Arrange
     user_attributes = {name_last: 'test_last_name'}
-    user_attributes[:address_attributes] = self.class.address_attributes
+    add_address_attributes(user_attributes)
     add_role_parameters(user_attributes)
 
     ### need a user to be signed in before reaching admin interface
@@ -174,7 +174,7 @@ private
     }
   end
 
-  def self.address_attributes
+  def address_attributes
     {
       line_1: 'first line in address',
       line_2: "",
@@ -189,6 +189,10 @@ private
     sign_in :user, user
 
     return user
+  end
+
+  def add_address_attributes(params)
+    params[:address_attributes] = address_attributes
   end
 
   def add_role_parameters(params)
