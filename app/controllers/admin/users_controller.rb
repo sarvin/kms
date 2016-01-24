@@ -38,6 +38,7 @@ class Admin::UsersController < Admin::BaseController
     @user = User.find(params[:id])
 
     if @user.update(user_params)
+      update_roles
       redirect_to [:admin, @user]
     else
       render 'edit'
@@ -57,5 +58,35 @@ class Admin::UsersController < Admin::BaseController
       :name_first, :name_last, :chapter_id, :email, :password,
       address_attributes: [:id, :line_1, :line_2, :city, :state_id, :postal_code]
     )
+  end
+
+  def user_params_update
+    if params[:user][:password].blank?
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
+
+    params.require(:user).permit(
+      :name_first, :name_last, :chapter_id, :email, :password,
+      address_attributes: [:id, :line_1, :line_2, :city, :state_id, :postal_code],
+      :role_names => []
+    )
+  end
+
+  def update_roles
+    existing_roles = @user.role_list || []
+    new_roles = user_params_update[:role_names] || []
+
+    remove_roles = existing_roles - new_roles
+    remove_roles.each do |role_name|
+      @user.remove_role role_name
+    end
+
+    add_roles = new_roles - existing_roles
+    add_roles.each do |role_name|
+      if @user.allowed_role? role_name
+        @user.add_role role_name
+      end
+    end
   end
 end

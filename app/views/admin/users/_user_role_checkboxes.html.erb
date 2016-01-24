@@ -1,0 +1,18 @@
+<fieldset class="form-group">
+	<%= f.label :role %>
+	<div class="input-group">
+		<% user.class.available_role_names.each do |role_name| %>
+			<div class="checkbox">
+				<label>
+					<% if user.has_role? role_name %>
+						<% checked = true %>
+					<% else %>
+						<% checked = false %>
+					<% end %>
+					<%= check_box_tag 'user[role_names][]', role_name, user.has_role?(role_name) -%>
+					<%= role_name.titleize -%>
+				</label>
+			</div>
+		<%- end %>
+	</div>
+</fieldset>

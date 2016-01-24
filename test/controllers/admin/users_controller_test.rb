@@ -67,6 +67,8 @@ class Admin::UsersControllerTest < ActionController::TestCase
     ### Assert
     assert defined?(new_user), 'User should be created'
     assert_equal new_user.address.line_1, user_attributes[:address_attributes][:line_1], "First line in address should equal"
+    assert new_user.has_role?('prospect'), 'Prospect added to new user on creation'
+    assert_equal 1, new_user.role_list.length, 'single role assigned to new user'
     assert_redirected_to admin_user_path(assigns(:user))
   end
 

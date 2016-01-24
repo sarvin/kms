@@ -59,6 +59,8 @@
     </div>
   </fieldset>
 
+  <%= render :partial => 'user_role_checkboxes', :locals => {f: f, user: @user} %>
+
   <%= f.fields_for :address do |address| %>
     <%= render :partial => 'admin/addresses/address', :locals => {:f => address} %>
   <%- end %>
