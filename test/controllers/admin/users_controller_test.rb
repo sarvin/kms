@@ -62,7 +62,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
       :user => user_attributes
     )
 
-    new_user = User.find_by name_first: 'tim'
+    new_user = User.find_by name_first: user_attributes[:name_first]
 
     ### Assert
     assert defined?(new_user), 'User should be created'
