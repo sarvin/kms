@@ -23,7 +23,7 @@ class Admin::ChaptersController < Admin::BaseController
   end
 
   def show
-    @chapter = Chapter.find(params[:id])
+    @chapter = Chapter.find(params[:id]).includes(:users)
   end
 
   def update
