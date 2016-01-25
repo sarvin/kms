@@ -9,6 +9,7 @@
     </caption>
     <thead>
       <tr>
+        <th>Position</th>
         <th>Name</th>
         <th>Email</th>
         <th colspan="1"></th>
@@ -17,6 +18,7 @@
     <tbody>
     <% users.each do |user| %>
       <tr>
+        <td><%= user.role_list.map{|role_name| role_name.titleize}.join(', ') %></td>
         <td><%= user.name_first %> <%= user.name_last %></td>
         <td><%= user.email %></td>
         <td>

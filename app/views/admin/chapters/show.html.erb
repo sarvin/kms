@@ -25,4 +25,4 @@
 <%= link_to 'Back', admin_chapters_path, class: 'btn btn-default btn-sm' %>
 
 <%= render 'form_for_page' %>
-<%= render partial: "admin/users/users_table", locals: { chapter: @chapter, users: @chapter.users } %>
+<%= render partial: "admin/users/users_table", locals: { chapter: @chapter, users: sort_users_by_role(@chapter.users) } %>
