@@ -1,6 +1,7 @@
 class Admin::ChaptersController < Admin::BaseController
   def new
     @chapter = Chapter.new
+    @chapter.build_public_navigation
   end
 
   def create
@@ -45,6 +46,6 @@ class Admin::ChaptersController < Admin::BaseController
 
   private
     def chapter_params
-      params.require(:chapter).permit(:name, :state_id)
+      params.require(:chapter).permit(:name, :state_id, public_navigation_attributes:[:id, :active])
     end
 end

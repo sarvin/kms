@@ -22,6 +22,10 @@
     <%= f.collection_select :state_id, State.order(:name), :id, :titleize_name, prompt: true %>
   </p>
 
+  <%= f.fields_for :public_navigation do |public_navigation| %>
+    <%= render :partial => 'public_navigation', :locals => {:f => public_navigation} %>
+  <%- end %>
+
   <p>
   <div class="input-group">
     <%= f.submit "Save", class: "btn btn-primary btn-sm " %>

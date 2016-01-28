@@ -2,8 +2,9 @@ class Chapter < ActiveRecord::Base
   belongs_to :state
 
   has_one :page, :as => :pageable, dependent: :destroy
+  has_one :public_navigation, :as => :navigable, dependent: :destroy
+    accepts_nested_attributes_for :public_navigation, allow_destroy: true
   has_many :users, dependent: :nullify
-  #accepts_nested_attributes_for :page
 
   validates :name, presence: true,
     uniqueness: true

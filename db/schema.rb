@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160124052337) do
+ActiveRecord::Schema.define(version: 20160128052851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,8 +72,11 @@ ActiveRecord::Schema.define(version: 20160124052337) do
     t.string   "navigable_type"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.boolean  "active"
   end
 
+  add_index "public_navigations", ["active"], name: "index_public_navigations_on_active", using: :btree
+  add_index "public_navigations", ["navigable_id", "navigable_type"], name: "index_public_navigations_on_navigable_id_and_navigable_type", unique: true, using: :btree
   add_index "public_navigations", ["navigable_type", "navigable_id"], name: "index_public_navigations_on_navigable_type_and_navigable_id", using: :btree
 
   create_table "royce_connector", force: :cascade do |t|
