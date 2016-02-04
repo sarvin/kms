@@ -1,21 +1,24 @@
-one:
+SAMTAZ:
   navigable: SAMTAZ (Chapter)
   active: true
-two:
+SAMCRO:
   navigable: SAMCRO (Chapter)
   active: true
-three:
+SAMWOOD:
   navigable: SAMWOOD (Chapter)
   active: true
-four:
+SAMDINO:
   navigable: SAMDINO (Chapter)
   active: true
-five:
+Devil's Tribe:
+  navigable: Devil's Tribe (Chapter)
+  active: true
+RAHWAY:
   navigable: RAHWAY (Chapter)
   active: true
-six:
+SAMBEL:
   navigable: SAMBEL (Chapter)
   active: false
-seven:
+An Clochán Liath:
   navigable: An Clochán Liath (Chapter)
   active: true
