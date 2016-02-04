@@ -13,3 +13,6 @@ four:
 five:
   navigable: RAHWAY (Chapter)
   active: true
+six:
+  navigable: SAMBEL (Chapter)
+  active: false

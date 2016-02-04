@@ -31,4 +31,20 @@ class ChapterTest < ActiveSupport::TestCase
 
     assert_not new_chapter.save, "name has to be unique"
   end
+
+  test 'publicly available chapters are properly queryable' do
+    chapters = Chapter.publicly_navigable
+
+    chapters.each do |chapter|
+      assert chapter.public_navigation.active, "active should be true"
+    end
+  end
+
+  test 'privately available chapters are properly queryable' do
+    chapters = Chapter.privately_navigable
+
+    chapters.each do |chapter|
+      assert_not chapter.public_navigation.active, "active should be false"
+    end
+  end
 end
