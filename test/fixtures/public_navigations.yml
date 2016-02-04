@@ -16,3 +16,6 @@ five:
 six:
   navigable: SAMBEL (Chapter)
   active: false
+seven:
+  navigable: An Clochán Liath (Chapter)
+  active: true
