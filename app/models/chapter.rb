@@ -1,9 +1,9 @@
 class Chapter < ActiveRecord::Base
+  include Navigable
+
   belongs_to :state
 
   has_one :page, :as => :pageable, dependent: :destroy
-  has_one :public_navigation, :as => :navigable, dependent: :destroy
-    accepts_nested_attributes_for :public_navigation, allow_destroy: true
   has_many :users, dependent: :nullify
 
   validates :name, presence: true,
