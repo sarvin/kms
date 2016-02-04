@@ -15,8 +15,8 @@ class Admin::ChaptersController < Admin::BaseController
   end
 
   def index
-    @orphaned_chapters = Chapter.orphaned
-    @adopted_chapters = Chapter.adopted
+    @orphaned_chapters = Chapter.orphaned.includes(:public_navigation)
+    @adopted_chapters = Chapter.adopted.includes(:public_navigation, :state)
   end
 
   def edit
