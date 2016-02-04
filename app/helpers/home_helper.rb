@@ -1,6 +1,6 @@
 module HomeHelper
   def get_main_navigation_items
-    states = State.populated
+    states = State.populated_with_publicly_navigable
     chapters = Chapter.orphaned.publicly_navigable
     pages = Page.orphaned
 
